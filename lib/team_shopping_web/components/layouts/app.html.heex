@@ -1,0 +1,23 @@
+<div class="h-screen flex flex-col">
+  <main class="overflow-y-auto px-1 py-1 sm:px-2 lg:px-3 grow">
+    <div class="mx-auto max-w-2xl h-full">
+      <.flash_group flash={@flash} />
+      <div class="flex flex-col h-full">
+        {@inner_content}
+      </div>
+    </div>
+  </main>
+  <footer class="min-h-20 sm:px-6 lg:px-8 flex-none border-t-2 border-zinc-100 dark:border-zinc-700">
+    <div class="w-full h-full flex justify-around items-center">
+      <button
+        class={[
+          @live_action == :tasks && "border-2 rounded-lg border-zinc-300 dark:border-zinc-500"
+        ]}
+        disabled={@live_action == :tasks}
+        phx-click={JS.navigate(~p"/lists")}
+      >
+        <img class="p-2 size-12" src={~p"/images/shopping_list.svg"} />
+      </button>
+    </div>
+  </footer>
+</div>
